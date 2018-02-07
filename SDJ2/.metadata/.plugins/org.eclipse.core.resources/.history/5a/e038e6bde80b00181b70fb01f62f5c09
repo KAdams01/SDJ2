@@ -1,0 +1,87 @@
+package utility.collection;
+
+public class ArrayStringQueue implements StringQueueADT 
+{
+	private final int DEFAULT_CAPACITY = 100;
+	private String[] queue;
+	private int count, front;
+	
+	public ArrayStringQueue(int initialCapacity)
+	{
+		count = 0;
+		front = 0;
+		queue = new String[initialCapacity];
+	}
+	
+	public ArrayStringQueue()
+	{
+		count = 0;
+		front = 0;
+		queue = new String[DEFAULT_CAPACITY];
+	}
+	
+	public String toString()
+	{
+		String s = "";
+		for (int i = 0; i < queue.length; i++) 
+		{
+			s+= queue[i] + ", ";
+		}
+		return s;
+	}
+
+	public void enqueue(String element) 
+	{
+		String[] temp;
+		if(count == queue.length)
+		{
+			temp = new String[queue.length + 10];
+			for (int i = 0; i < queue.length; i++)
+			{
+				temp[i] = queue[i];
+			}
+		
+			queue = temp;
+		}
+		
+		queue[count] = element;
+		count++;
+	}
+
+	public String dequeue()
+	{
+		String temporary = queue[front];
+		queue[front] = null;
+		front++;
+		count--;
+		return temporary;
+	}
+
+	public String first() 
+	{
+		return queue[front];
+	}
+
+	public int indexOf(String element) 
+	{
+		for (int i = 0; i < queue.length; i++) 
+		{
+			if(queue[i].equals(element))
+				return i;
+		}
+		
+		return -1;
+	}
+
+	public boolean isEmpty()
+	{
+		return count == 0;
+	}
+
+	public int size() 
+	{
+		return count;
+	}
+	
+	
+}

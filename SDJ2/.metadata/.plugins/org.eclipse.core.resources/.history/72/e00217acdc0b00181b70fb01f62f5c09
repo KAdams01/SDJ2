@@ -1,0 +1,17 @@
+package collection;
+
+public class BoundedArrayStringQueue implements StringQueueADT 
+{
+	private String[] queue;
+	private int count, front;
+	
+	public BoundedArrayStringQueue(int capacity)
+	{
+		
+	}
+	
+	public String toString()
+	{
+		return "";
+	}
+}

@@ -1,0 +1,32 @@
+package utility.collection;
+
+public class ArrayStringQueue implements StringQueueADT 
+{
+	private final int DEFAULT_CAPACITY = 100;
+	private String[] queue;
+	private int count, front;
+	
+	public ArrayStringQueue(int initialCapacity)
+	{
+		count = 0;
+		front = 0;
+		queue = new String[initialCapacity];
+	}
+	
+	public ArrayStringQueue()
+	{
+		count = 0;
+		front = 0;
+		queue = new String[DEFAULT_CAPACITY];
+	}
+	
+	public String toString()
+	{
+		String s = "";
+		for (int i = 0; i < queue.length; i++) 
+		{
+			s+= queue[i] + ", ";
+		}
+		return s;
+	}
+}

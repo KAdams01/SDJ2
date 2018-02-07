@@ -1,0 +1,17 @@
+package collection;
+
+public class Test {
+
+	public static void main(String[] args) 
+	{
+		BoundedArrayStringQueue queue = new BoundedArrayStringQueue(10);
+		queue.enqueue("String 1");
+		System.out.println(queue.first());
+		queue.enqueue("String 2");
+		System.out.println(queue.first());
+		queue.dequeue();
+		System.out.println(queue);
+
+	}
+
+}

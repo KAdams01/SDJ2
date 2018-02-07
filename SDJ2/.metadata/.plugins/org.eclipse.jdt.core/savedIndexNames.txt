@@ -1,0 +1,3 @@
+INDEX VERSION 1.130+C:\Users\Zagatova\Lukáš\VIA\SDJ2\.metadata\.plugins\org.eclipse.jdt.core
+1590360010.index
+3351488112.index
