@@ -1,0 +1,28 @@
+package cardModel;
+
+import java.util.Scanner;
+
+public class CardTest {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String temp = "";
+		CardsDeck cD1 = new CardsDeck();
+		Hand player1 = new Hand(cD1);
+		System.out.println(player1.showHand());
+		System.out.println("Would you like to draw another card? Y/N");
+		temp = input.nextLine();
+		if(temp.equals("Y")) {
+			player1.drawCard();
+			System.out.println(player1.showHand());
+			System.out.println(player1.getTotalValue());
+		}
+		else {
+			System.out.println(player1.showHand());
+			System.out.println(player1.getTotalValue());
+		}
+		
+
+	}
+
+}

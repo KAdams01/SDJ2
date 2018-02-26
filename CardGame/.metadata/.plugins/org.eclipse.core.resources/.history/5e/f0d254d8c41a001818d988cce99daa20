@@ -1,0 +1,36 @@
+package cardModel;
+
+import java.util.Scanner;
+
+public class CardTest {
+	private static CardsDeck cD1 = new CardsDeck();
+	private static Hand hand1 = new Hand(cD1);
+	private static Player player1 = new Player("Kevin", hand1);
+
+	public static void main(String[] args) {
+		checkWinCon();
+	}
+	
+	public static void checkWinCon() {
+		while(player1.getHand().checkWinCondition() == true) {
+			Scanner input = new Scanner(System.in);
+			String temp = "";
+			System.out.println(player1);
+			System.out.println("Would you like to draw another card? Y/N");
+			temp = input.nextLine();
+			if(temp.equalsIgnoreCase("Y")) {
+				System.out.println(player1.getHand().showHand());
+				player1.getHand().drawCard();
+			}
+			else if(temp.equalsIgnoreCase("N")) {
+				System.out.println(player1.getHand().showHand());
+				System.exit(1);
+			}
+			input.close();
+			
+		}
+		System.out.println(player1.getHand().showHand());
+		System.out.println("LOSE");
+	}
+
+}

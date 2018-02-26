@@ -1,0 +1,46 @@
+package cardModel;
+
+import cardModel.CardsDeck.Rank;
+
+
+public class Card {
+
+	private cardModel.CardsDeck.Suit mSuit;
+	private Rank mRank;
+
+	public Card(cardModel.CardsDeck.Suit s, Rank rank) {
+		this.mSuit = s;
+		this.mRank = rank;
+	}
+
+	public cardModel.CardsDeck.Suit getSuit() {
+		return mSuit;
+	}
+
+	public Rank getRank() {
+		return mRank;
+	}
+
+	public int getValue() {
+		System.out.println(mRank.ordinal() + 1);
+		return mRank.ordinal() + 2;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		return (o != null && o instanceof Card && ((Card) o).mRank == mRank && ((Card) o).mSuit == mSuit);
+	}
+	
+	@Override
+	public String toString() {
+		String temp = "";
+		switch(mRank.getValue()) {
+		case 11: temp = "J"; break;
+		case 12: temp = "Q"; break;
+		case 13: temp = "K"; break;
+		default: temp = String.valueOf(mRank.getValue()); break;
+		}
+		return mSuit.toString() + " " + temp;
+	}
+
+}

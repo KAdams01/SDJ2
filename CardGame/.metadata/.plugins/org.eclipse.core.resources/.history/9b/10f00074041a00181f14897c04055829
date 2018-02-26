@@ -1,0 +1,12 @@
+package cardModel;
+
+public class CardTest {
+
+	public static void main(String[] args) {
+		CardsDeck cD1 = new CardsDeck();
+		for (int i = 0; i < 52; i++) {
+		System.out.println(cD1.pullRandom());
+		}
+	}
+
+}

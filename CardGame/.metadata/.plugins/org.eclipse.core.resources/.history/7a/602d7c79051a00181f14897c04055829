@@ -1,0 +1,11 @@
+package cardModel;
+
+public class CardTest {
+
+	public static void main(String[] args) {
+		CardsDeck cD1 = new CardsDeck();
+		Hand player1 = new Hand(cD1);
+		System.out.println(player1.showHand());
+	}
+
+}

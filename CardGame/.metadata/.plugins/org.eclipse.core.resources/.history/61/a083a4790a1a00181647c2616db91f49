@@ -1,0 +1,30 @@
+package cardModel;
+
+import java.util.Scanner;
+
+public class CardTest {
+	private static CardsDeck cD1 = new CardsDeck();
+	private static Hand player1 = new Hand(cD1);
+
+	public static void main(String[] args) {
+		checkWinCon();
+	}
+	
+	public static void checkWinCon() {
+		while(player1.checkWinCondition() == true) {
+			Scanner input = new Scanner(System.in);
+			String temp = "";
+			System.out.println(player1.showHand());
+			System.out.println("Would you like to draw another card? Y/N");
+			temp = input.nextLine();
+			if(temp.equals("Y")) {
+				System.out.println(player1.showHand());
+				player1.drawCard();
+			}
+			
+		}
+		System.out.println(player1.showHand());
+		System.out.println("LOSE");
+	}
+
+}

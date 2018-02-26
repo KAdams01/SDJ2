@@ -1,0 +1,21 @@
+package cardModel;
+
+import java.util.ArrayList;
+
+public class Suit {
+	
+//	private String suitName;
+	private ArrayList<Card> card;
+	private final String SUIT_DIAMOND = "DIAMOND";
+	private final String SUIT_HEART = "HEART";
+	private final String SUIT_CLUB = "CLUB";
+	private final String SUIT_SPADE = "SPADE";
+	
+	public Suit() {
+		card = new ArrayList<Card>();
+		for(int i = 0; i > 12; i++) {
+			card.add(new Card(i));
+		}
+	}
+
+}

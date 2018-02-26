@@ -1,0 +1,38 @@
+package cardModel;
+
+import java.util.Scanner;
+
+public class CardTest {
+	private static CardsDeck cD1 = new CardsDeck();
+	private static Hand player1 = new Hand(cD1);
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String temp = "";
+		
+		
+		System.out.println(player1.showHand());
+		System.out.println("Would you like to draw another card? Y/N");
+		temp = input.nextLine();
+		if(temp.equals("Y")) {
+			player1.drawCard();
+			System.out.println(player1.showHand());
+			System.out.println(player1.getTotalValue());
+			checkWinCon();
+		}
+		else {
+			System.out.println(player1.showHand());
+			System.out.println(player1.getTotalValue());
+		}
+	}
+	
+	public static void checkWinCon() {
+		if(player1.checkWinCondition() == true) {
+			System.out.println("WIN");
+		}
+		else {
+			System.out.println("LOSE");
+		}
+	}
+
+}

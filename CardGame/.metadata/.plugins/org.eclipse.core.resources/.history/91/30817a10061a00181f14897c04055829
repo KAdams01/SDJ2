@@ -1,0 +1,23 @@
+package cardModel;
+
+import java.util.ArrayList;
+
+public class Hand {
+	private ArrayList<Card> hand;
+	private CardsDeck cardDeck;
+	
+	public Hand(CardsDeck cD1) {
+		cardDeck = cD1;
+		hand = new ArrayList<Card>();
+		hand.add(cD1.pullRandom());
+		hand.add(cD1.pullRandom());
+	}
+	public ArrayList<Card> showHand() {
+		return hand;
+	}
+	public void drawCard() {
+		if(cardDeck.pullRandom() != null)
+		hand.add(cardDeck.pullRandom());
+	}
+
+}

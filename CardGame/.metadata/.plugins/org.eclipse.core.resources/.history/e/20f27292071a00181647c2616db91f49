@@ -1,0 +1,34 @@
+package cardModel;
+
+import java.util.ArrayList;
+
+public class Hand {
+	private ArrayList<Card> hand;
+	private CardsDeck cardDeck;
+	
+	public Hand(CardsDeck cD1) {
+		cardDeck = cD1;
+		hand = new ArrayList<Card>();
+		hand.add(cD1.pullRandom());
+		hand.add(cD1.pullRandom());
+	}
+	public ArrayList<Card> showHand() {
+		return hand;
+	}
+	public void drawCard() {
+		if(cardDeck.pullRandom() != null) {
+		hand.add(cardDeck.pullRandom());
+		}
+		else {
+			System.out.println("Error. End of Deck.");
+		}
+	}
+	public int getTotalValue() {
+		int temp = 0;
+		for (int i = 0; i < hand.size(); i++) {
+			temp += hand.get(i).getValue();
+		}
+		return temp;
+	}
+
+}

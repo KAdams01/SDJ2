@@ -21,7 +21,7 @@ public class ArrayStringQueue implements StringQueueADT
 	public String toString()
 	{
 		String s = "";
-		for (int i = 0; i < queue.length; i++) 
+		for (int i = 0; i < count; i++) 
 		{
 			s+= queue[i] + ", ";
 		}

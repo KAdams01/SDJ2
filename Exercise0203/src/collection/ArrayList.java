@@ -6,21 +6,27 @@ public class ArrayList<T> implements ListADT<T> {
 	public int size;
 
 	public ArrayList(int initialCapacity) {
-		list = (T[])new Object[initialCapacity];
+		list = (T[]) new Object[initialCapacity];
 		size = 0;
 	}
 
 	public ArrayList() {
-		list = (T[])new Object[DEFAULT_CAPACITY];
+		list = (T[]) new Object[DEFAULT_CAPACITY];
 		size = 0;
 	}
 
 	@Override
 	public void add(int index, T element) {
-		if (size == list.length || index > list.length) {
+		if (size == list.length) {
+			if(list[0]!= null) {
+				throw new IllegalStateException();
+			}
+			size = 0;
+		}
+		if (index > list.length) {
 			throw new IllegalStateException();
 		} else {
-			T[] temp = (T[])new Object[list.length];
+			T[] temp = (T[]) new Object[list.length];
 
 			for (int i = 0; i <= index - 1; i++) {
 				temp[i] = list[i];
@@ -35,6 +41,12 @@ public class ArrayList<T> implements ListADT<T> {
 
 	@Override
 	public void add(T element) {
+		if (size == list.length) {
+			if(list[0]!= null) {
+				throw new IllegalStateException();
+			}
+			size = 0;
+		}
 		list[size] = element;
 		size++;
 	}
@@ -54,9 +66,9 @@ public class ArrayList<T> implements ListADT<T> {
 		T temp = list[index];
 		list[index] = null;
 		for (int j = index; j < list.length - 1; j++) {
-			list[j] = list[j+1];
+			list[j] = list[j + 1];
 		}
-		list[list.length-1] = null;
+		list[list.length - 1] = null;
 		return temp;
 	}
 
@@ -65,15 +77,15 @@ public class ArrayList<T> implements ListADT<T> {
 		int int1 = indexOf(element);
 		T temp = null;
 		for (int i = 0; i < list.length; i++) {
-			if(list[i] != null && list[i].equals(element)) {
+			if (list[i] != null && list[i].equals(element)) {
 				temp = list[i];
 				list[i] = null;
 			}
 		}
 		for (int j = int1; j < list.length - 1; j++) {
-			list[j] = list[j+1];
+			list[j] = list[j + 1];
 		}
-		list[list.length-1] = null;
+		list[list.length - 1] = null;
 		return temp;
 	}
 
